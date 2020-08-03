@@ -1,0 +1,4 @@
+[0723/224255.261:ERROR:crash_report_database_win.cc(580)] CreateDirectory C:\Users\ANIELA~1\AppData\Local\Temp\scoped_dir3424_38848696\Crashpad: Za ma³o miejsca na dysku. (0x70)
+[0723/224255.263:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: Potok zosta³ zakoñczony. (0x6D)
+[0723/224255.317:ERROR:crash_report_database_win.cc(580)] CreateDirectory C:\Users\ANIELA~1\AppData\Local\Temp\scoped_dir3424_38848696\Crashpad: Za ma³o miejsca na dysku. (0x70)
+[0803/163438.557:ERROR:file_io.cc(134)] WriteFile: Trwa zamykanie potoku. (0xE8)
