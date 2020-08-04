@@ -50,7 +50,7 @@ public class MainPageTest extends Base {
 		}
 
 	
-	 @Test(enabled=false)
+	 @Test()
 	 public void TC2() throws IOException, InterruptedException 
 	 	{
 		 
@@ -63,7 +63,7 @@ public class MainPageTest extends Base {
 		 }
 	  
 	 	  
-	 @Test(dataProvider = "testData",enabled=false) 
+	 @Test(dataProvider = "testData") 
 	 public void TC3(String item)
 	 	{
 	  
@@ -74,7 +74,7 @@ public class MainPageTest extends Base {
 	  
 	 	}
 	  
-	  @Test(dataProvider = "testData",enabled=false) 
+	  @Test(dataProvider = "testData") 
 	  public void TC4(String item) throws InterruptedException
 	  	{
 	  
@@ -86,7 +86,7 @@ public class MainPageTest extends Base {
 	  
 	  	}
 	    
-	 @Test(dataProvider = "testData1",enabled=false)
+	 @Test(dataProvider = "testData1")
 	 public void TC5(String item, String mismatch) throws InterruptedException 
 	 	{	
 		 
@@ -96,7 +96,7 @@ public class MainPageTest extends Base {
 		 
 		 }
 	 
-	@Test(enabled=false)
+	@Test()
 	public void TC6()
 		{
 			loadHomePage();
@@ -106,7 +106,6 @@ public class MainPageTest extends Base {
 				{			
 				
 				WebElement miniDriver = hp.footerLinks().get(i);
-			//	int columnSize = miniDriver.findElements(By.tagName("a")).size();
 				int counter = openAllLinksInSeparateTabs(miniDriver);
 				childPageCount = childPageCount + counter;
 				iterateAllTabsAndGrabTitle();	
@@ -136,7 +135,7 @@ public class MainPageTest extends Base {
 		 	Assert.assertTrue(fs.countOfItems().getText().contains(countOfDesiredItems));
 		
 		 }
-	 @Test(enabled=false) 
+	 @Test() 
 	 public void TC8() 
 	 	{
 		 	act = new Actions(driver); 		
