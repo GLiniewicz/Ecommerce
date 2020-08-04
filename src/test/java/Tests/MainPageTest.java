@@ -1,4 +1,4 @@
-package HM;
+package Tests;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class MainPageTest extends Base {
 		loadHomePage();
 	}
 
-	@Test
+	@Test()
 	public void TC1() throws IOException		
 		{
 
@@ -50,7 +50,7 @@ public class MainPageTest extends Base {
 		}
 
 	
-	 @Test()
+	 @Test(enabled=false)
 	 public void TC2() throws IOException, InterruptedException 
 	 	{
 		 
@@ -62,22 +62,8 @@ public class MainPageTest extends Base {
 		 
 		 }
 	  
-	  @DataProvider 
-	  public Object[][] testData() 
-	  	{ 
-		  
-		  Object[][] data = new Object[3][1]; 
-		  data[0][0] = "buty"; 
-		  data[1][0] = "top"; 
-		  data[2][0] = "kapelusz";
-	  
-		  return data;
-		  
-	  	}
-	  
-	  
-	  
-	 @Test(dataProvider = "testData") 
+	 	  
+	 @Test(dataProvider = "testData",enabled=false) 
 	 public void TC3(String item)
 	 	{
 	  
@@ -88,7 +74,7 @@ public class MainPageTest extends Base {
 	  
 	 	}
 	  
-	  @Test(dataProvider = "testData") 
+	  @Test(dataProvider = "testData",enabled=false) 
 	  public void TC4(String item) throws InterruptedException
 	  	{
 	  
@@ -99,24 +85,8 @@ public class MainPageTest extends Base {
 		  Assert.assertTrue(driver.getTitle().contains(item));
 	  
 	  	}
-	  
-	  @DataProvider 
-	  public Object[][] testData1()
-	  	{
-		  
-		  Object[][] data = new Object[3][2]; 
-		  data[0][0] = "@@@@"; 
-		  data[0][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
-		  data[1][0] = "^^^^"; 
-		  data[1][1] = "BRAK PASUJĄCYCH PRODUKTÓW"; 
-		  data[2][0] = "%%%%"; 
-		  data[2][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
-	  
-		  return data;
-		  
-		}
-	  
-	 @Test(dataProvider = "testData1")
+	    
+	 @Test(dataProvider = "testData1",enabled=false)
 	 public void TC5(String item, String mismatch) throws InterruptedException 
 	 	{	
 		 
@@ -126,7 +96,7 @@ public class MainPageTest extends Base {
 		 
 		 }
 	 
-	@Test()
+	@Test(enabled=false)
 	public void TC6()
 		{
 			loadHomePage();
@@ -150,20 +120,23 @@ public class MainPageTest extends Base {
 	 @Test() 
 	 public void TC7() throws InterruptedException, IOException
 	 	{
+		 	loadHomePage();
 		 	data = edd.getData("General", "TC7");
 		 
 		 	String itemName = data.get(1);
 		 	String countOfDesiredItems = data.get(2);
+		 	String pageTitle = data.get(3);
 		 
 		 	hp.searchBox().clear();
 		 	hp.searchBox().sendKeys(itemName, Keys.ENTER);
 		 	srp.firstFavoriteIcon().click();		 
 		 	hp.favouritesTab().click();
+		 	Assert.assertTrue(driver.getTitle().contains(pageTitle));
 		 	
 		 	Assert.assertTrue(fs.countOfItems().getText().contains(countOfDesiredItems));
 		
 		 }
-	 @Test() 
+	 @Test(enabled=false) 
 	 public void TC8() 
 	 	{
 		 	act = new Actions(driver); 		
@@ -178,5 +151,33 @@ public class MainPageTest extends Base {
 	public void teardown() 
 		{
 			driver.quit();
+		}
+	  
+	 @DataProvider 
+	  public Object[][] testData() 
+	  	{ 
+		  
+		  Object[][] data = new Object[3][1]; 
+		  data[0][0] = "buty"; 
+		  data[1][0] = "top"; 
+		  data[2][0] = "kapelusz";
+	  
+		  return data;
+		  
+	  	}
+	  @DataProvider 
+	  public Object[][] testData1()
+	  	{
+		  
+		  Object[][] data = new Object[3][2]; 
+		  data[0][0] = "@@@@"; 
+		  data[0][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
+		  data[1][0] = "^^^^"; 
+		  data[1][1] = "BRAK PASUJĄCYCH PRODUKTÓW"; 
+		  data[2][0] = "%%%%"; 
+		  data[2][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
+	  
+		  return data;
+		  
 		}
 }

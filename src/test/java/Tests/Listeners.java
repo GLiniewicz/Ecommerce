@@ -1,4 +1,4 @@
-package HM;
+package Tests;
 
 import java.io.IOException;
 

@@ -11,7 +11,7 @@ Description:
 5. Test Base Class: Test Base Class (Base.java) deals with all the common functions used by all the pages. This class is responsible for loading configuration, initializing the WebDriver, Implicit Waits, Extent Reports and also to create object of FileInputStream which is responsible for pointing towards the file from which the data should be read. 
 6. Screenshots: Screenshots will be captured and stored in a separate folder and the screenshots of failed test cases will be added in the extent reports
 7. Test Data: To derive test data I am using @DataProvider which is part of TestNG, and part of the data will be kept in excell sheet (TestData.xlsx). By using TestData.xlsx I pass test data and handel data driven testing. I use Apache POI to handel excell sheets. 
-8.TestNG: Using TestNG for Assertions, Grouping, Parallel execution and derive data with @DataProvider annotation.
+8. TestNG: Using TestNG for Assertions, Grouping, Parallel execution and derive data with @DataProvider annotation.
 9. Maven: Using Maven for build, execution in command prompt ( with a help of surefire plugin ) and dependency purpose.
 10. Version control: Git
 11. Extent Reports: For the reporting purpose, I am using Extent Reports. It generates easy to read HTML reports which is located in 'reports' folder inside of the project.
