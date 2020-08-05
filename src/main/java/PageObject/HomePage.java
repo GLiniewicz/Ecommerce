@@ -24,46 +24,38 @@ public class HomePage {
 	private By footerLinks = By.cssSelector("nav.footer-category");
 	private By favouritesTab = By.cssSelector("a.menu__favorites");
 	private By wyprzedazButton = By.cssSelector("a[data-goto-text='Go to Wyprzedaż home']");
-	private By allSectionsInMainMenu = By.linkText("Łazienka");
+	private By lazienkaButton = By.linkText("Łazienka");
 
 	public WebElement readMagazineButton() {
-
 		return driver.findElement(readMagazineButton);
 	}
 
 	public WebElement magazineHeader() {
-
 		return driver.findElement(magazineHeader);
 	}
 
 	public WebElement koszykButton() {
-
 		return driver.findElement(koszykButton);
 	}
 
 	public WebElement searchBox() {
-
 		return driver.findElement(searchBox);
 	}
 
 	public List<WebElement> footerLinks() {
-
 		return driver.findElements(footerLinks);
 	}
 
 	public WebElement favouritesTab() {
-
 		return driver.findElement(favouritesTab);
 	}
 
 	public WebElement wyprzedazButton() {
-
 		return driver.findElement(wyprzedazButton);
 	}
 
-	public WebElement allSectionsInMainMenu() {
-
-		return driver.switchTo().activeElement().findElement(allSectionsInMainMenu);
+	public WebElement lazienkaButton() {
+		return driver.switchTo().activeElement().findElement(lazienkaButton);
 	}
 
 }

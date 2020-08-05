@@ -31,7 +31,6 @@ public class MainPageTest extends Base {
 
 	@BeforeTest
 	public void config() throws IOException {
-
 		driver = initializeDriver();
 		hp = new HomePage(driver);
 		srp = new SearchResultsPage(driver);
@@ -40,143 +39,141 @@ public class MainPageTest extends Base {
 		loadHomePage();
 	}
 
+	/// <summary>
+	/// Summary: Verification of the Magazine link - Validation that the link
+	/// redirects the user to the expected page
+	/// </summary>
 	@Test()
-	public void TC1() throws IOException		
-		{
-
+	public void TC1() throws IOException {
 		hp.readMagazineButton().click();
 		Assert.assertTrue(hp.magazineHeader().getText().contains("MAGAZINE"));
-		
-		}
+	}
 
-	
-	 @Test()
-	 public void TC2() throws IOException, InterruptedException 
-	 	{
-		 
-		 loadHomePage(); 
-		 String homePageTitle = driver.getTitle();
-		 hp.koszykButton().click(); 
-		 clickOnLogo();
-		 Assert.assertTrue(homePageTitle.equals(driver.getTitle())); 
-		 
-		 }
-	  
-	 	  
-	 @Test(dataProvider = "testData") 
-	 public void TC3(String item)
-	 	{
-	  
-		 hp.searchBox().clear();
-		 hp.searchBox().sendKeys(item, Keys.ENTER); 
-		 Assert.assertNotNull(srp.countOfItems().getText());
-		 Assert.assertTrue(driver.getTitle().contains(item));
-	  
-	 	}
-	  
-	  @Test(dataProvider = "testData") 
-	  public void TC4(String item) throws InterruptedException
-	  	{
-	  
-		  hp.searchBox().clear(); 
-		  hp.searchBox().sendKeys(item);
-		  clickOnMagnifierIcon(); 
-		  Assert.assertNotNull(srp.countOfItems().getText());
-		  Assert.assertTrue(driver.getTitle().contains(item));
-	  
-	  	}
-	    
-	 @Test(dataProvider = "testData1")
-	 public void TC5(String item, String mismatch) throws InterruptedException 
-	 	{	
-		 
-		 hp.searchBox().clear(); 
-		 hp.searchBox().sendKeys(item, Keys.ENTER); 
-		 Assert.assertEquals(srp.searchResult().getText(), mismatch); 
-		 
-		 }
-	 
+	/// <summary>
+	/// Logo veryfication - Checking if the link attached to the logo button
+	/// redirects the user to the home page
+	/// </summary>
 	@Test()
-	public void TC6()
-		{
-			loadHomePage();
-		
-			int childPageCount=0;
-			for (int i = 0; i < hp.footerLinks().size(); i++)
-				{			
-				
-				WebElement miniDriver = hp.footerLinks().get(i);
-				int counter = openAllLinksInSeparateTabs(miniDriver);
-				childPageCount = childPageCount + counter;
-				iterateAllTabsAndGrabTitle();	
-			
-				}
-		
-			Assert.assertEquals(childPageCount, 17);
-		
-		}
-	
-	 @Test() 
-	 public void TC7() throws InterruptedException, IOException
-	 	{
-		 	loadHomePage();
-		 	data = edd.getData("General", "TC7");
-		 
-		 	String itemName = data.get(1);
-		 	String countOfDesiredItems = data.get(2);
-		 	String pageTitle = data.get(3);
-		 
-		 	hp.searchBox().clear();
-		 	hp.searchBox().sendKeys(itemName, Keys.ENTER);
-		 	srp.firstFavoriteIcon().click();		 
-		 	hp.favouritesTab().click();
-		 	Assert.assertTrue(driver.getTitle().contains(pageTitle));
-		 	
-		 	Assert.assertTrue(fs.countOfItems().getText().contains(countOfDesiredItems));
-		
-		 }
-	 @Test() 
-	 public void TC8() 
-	 	{
-		 	act = new Actions(driver); 		
-		 	act.moveToElement(hp.wyprzedazButton()).build().perform();		
-		 	act.moveToElement(hp.allSectionsInMainMenu()).click().build().perform();
-		 	Assert.assertTrue(srp.searchResult().getText()
-				.contains((hp.allSectionsInMainMenu().getText()).toUpperCase()));		
-		 }
+	public void TC2() throws IOException, InterruptedException {
+		loadHomePage();
+		String homePageTitle = driver.getTitle();
+		hp.koszykButton().click();
+		clickOnLogo();
+		Assert.assertTrue(homePageTitle.equals(driver.getTitle()));
+	}
 
-	
+	/// <summary>
+	/// Search results - Validate that the search results will appear properly after
+	/// provide item name in "Szukaj produktów" box and press ENTER on the keyboard
+	/// </summary>
+	@Test(dataProvider = "testData")
+	public void TC3(String item) {
+		hp.searchBox().clear();
+		hp.searchBox().sendKeys(item, Keys.ENTER);
+		Assert.assertNotNull(srp.countOfItems().getText());
+		Assert.assertTrue(driver.getTitle().contains(item));
+	}
+
+	/// <summary>
+	/// Search results - Validation that the search results will appear properly
+	/// after provide item name in "Szukaj produktów" box and click on magnifier
+	/// icon
+	/// </summary>
+	@Test(dataProvider = "testData")
+	public void TC4(String item) throws InterruptedException {
+		loadHomePage();
+		hp.searchBox().clear();
+		hp.searchBox().sendKeys(item);
+		clickOnMagnifierIcon();
+		Assert.assertNotNull(srp.countOfItems().getText());
+		Assert.assertTrue(driver.getTitle().contains(item));
+	}
+
+	/// <summary>
+	/// Search results - Validation that the search results will appear
+	/// after provide incorrect input data
+	/// </summary>
+	@Test(dataProvider = "testData1")
+	public void TC5(String item, String mismatch) throws InterruptedException {
+		// Summary: Search results - Validation that the search results will appear
+		// after provide incorrect input data
+		loadHomePage();
+		hp.searchBox().clear();
+		hp.searchBox().sendKeys(item, Keys.ENTER);
+		Assert.assertEquals(srp.searchResult().getText(), mismatch);
+	}
+
+	/// <summary>
+	/// Footer - Validation that the all links in a footer are working properly
+	/// </summary>
+	@Test()
+	public void TC6() {
+		loadHomePage();
+		int childPageCount = 0;
+		for (int i = 0; i < hp.footerLinks().size(); i++) {
+			WebElement miniDriver = hp.footerLinks().get(i);
+			int counter = openAllLinksInSeparateTabs(miniDriver);
+			childPageCount = childPageCount + counter;
+			iterateAllTabsAndGrabTitle();
+		}
+		Assert.assertEquals(childPageCount, 17);
+	}
+
+	/// <summary>
+	/// Favourites - Validate that the item marked as favorite will appear in
+	/// Favourites tab
+	/// </summary>
+	@Test()
+	public void TC7() throws InterruptedException, IOException {
+		loadHomePage();
+		data = edd.getData("General", "TC7");
+		String itemName = data.get(1);
+		String countOfDesiredItems = data.get(2);
+		String pageTitle = data.get(3);
+		hp.searchBox().clear();
+		hp.searchBox().sendKeys(itemName, Keys.ENTER);
+		srp.firstFavoriteIcon().click();
+		hp.favouritesTab().click();
+		Assert.assertTrue(driver.getTitle().contains(pageTitle));
+		Assert.assertTrue(fs.countOfItems().getText().contains(countOfDesiredItems));
+	}
+
+	/// <summary>
+	/// Main menu-Validate that the proper pages are opened when clicking on
+	/// specific values
+	/// </summary>
+	@Test()
+	public void TC8() {
+		loadHomePage();
+		act = new Actions(driver);
+		act.moveToElement(hp.wyprzedazButton()).build().perform();
+		act.moveToElement(hp.lazienkaButton()).click().build().perform();
+		Assert.assertTrue(srp.searchResult().getText().contains((hp.lazienkaButton().getText()).toUpperCase()));
+	}
+
 	@AfterTest
-	public void teardown() 
-		{
-			driver.quit();
-		}
-	  
-	 @DataProvider 
-	  public Object[][] testData() 
-	  	{ 
-		  
-		  Object[][] data = new Object[3][1]; 
-		  data[0][0] = "buty"; 
-		  data[1][0] = "top"; 
-		  data[2][0] = "kapelusz";
-	  
-		  return data;
-		  
-	  	}
-	  @DataProvider 
-	  public Object[][] testData1()
-	  	{
-		  
-		  Object[][] data = new Object[3][2]; 
-		  data[0][0] = "@@@@"; 
-		  data[0][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
-		  data[1][0] = "^^^^"; 
-		  data[1][1] = "BRAK PASUJĄCYCH PRODUKTÓW"; 
-		  data[2][0] = "%%%%"; 
-		  data[2][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
-	  
-		  return data;
-		  
-		}
+	public void teardown() {
+		driver.quit();
+	}
+
+	@DataProvider
+	public Object[][] testData() {
+		Object[][] data = new Object[3][1];
+		data[0][0] = "buty";
+		data[1][0] = "top";
+		data[2][0] = "kapelusz";
+		return data;
+	}
+
+	@DataProvider
+	public Object[][] testData1() {
+		Object[][] data = new Object[3][2];
+		data[0][0] = "@@@@";
+		data[0][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
+		data[1][0] = "^^^^";
+		data[1][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
+		data[2][0] = "%%%%";
+		data[2][1] = "BRAK PASUJĄCYCH PRODUKTÓW";
+		return data;
+	}
 }

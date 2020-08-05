@@ -14,16 +14,16 @@ import com.aventstack.extentreports.Status;
 import Resources.Base;
 import Resources.ExtentReporterNG;
 
-public class Listeners extends Base implements ITestListener{
-	
+public class Listeners extends Base implements ITestListener {
+
 	ExtentTest test;
-	ExtentReports extent=ExtentReporterNG.getReportObject();
-	ThreadLocal<ExtentTest> extentTest =new ThreadLocal<ExtentTest>();
+	ExtentReports extent = ExtentReporterNG.getReportObject();
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		test= extent.createTest(result.getMethod().getMethodName());
+		test = extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
 	}
 
@@ -37,18 +37,18 @@ public class Listeners extends Base implements ITestListener{
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		extentTest.get().fail(result.getThrowable());
-		WebDriver driver =null;
-		String testMethodName =result.getMethod().getMethodName();
-		
+		WebDriver driver = null;
+		String testMethodName = result.getMethod().getMethodName();
 		try {
-			driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-		} catch(Exception e)
-		{
-			
+			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
+					.get(result.getInstance());
+		} catch (Exception e) {
+
 		}
 		try {
-			extentTest.get().addScreenCaptureFromPath(getScreenShotPath(testMethodName,driver), result.getMethod().getMethodName());
-			
+			extentTest.get().addScreenCaptureFromPath(getScreenShotPath(testMethodName, driver),
+					result.getMethod().getMethodName());
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +58,7 @@ public class Listeners extends Base implements ITestListener{
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
