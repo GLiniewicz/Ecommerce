@@ -44,7 +44,7 @@ public class MainPageTest extends Base {
 	 * user to the expected page
 	 */
 	@Test()
-	public void TC1() throws IOException {
+	public void TC1() {
 		hp.readMagazineButton().click();
 		Assert.assertTrue(hp.magazineHeader().getText().contains("MAGAZINE"));
 	}
@@ -54,10 +54,11 @@ public class MainPageTest extends Base {
 	 * redirects the user to the home page
 	 */
 	@Test()
-	public void TC2() throws IOException, InterruptedException {
+	public void TC2() {
 		loadHomePage();
 		String homePageTitle = driver.getTitle();
 		hp.koszykButton().click();
+		waitForJStoLoad(driver);
 		clickOnLogo();
 		Assert.assertTrue(homePageTitle.equals(driver.getTitle()));
 	}
@@ -79,10 +80,11 @@ public class MainPageTest extends Base {
 	 * after provide item name in "Szukaj produktów" box and click on magnifier icon
 	 */
 	@Test(dataProvider = "testData")
-	public void TC4(String item) throws InterruptedException {
+	public void TC4(String item) {
 		loadHomePage();
 		hp.searchBox().clear();
 		hp.searchBox().sendKeys(item);
+		waitForJStoLoad(driver);
 		clickOnMagnifierIcon();
 		Assert.assertNotNull(srp.countOfItems().getText());
 		Assert.assertTrue(driver.getTitle().contains(item));
@@ -93,7 +95,7 @@ public class MainPageTest extends Base {
 	 * incorrect input data
 	 */
 	@Test(dataProvider = "testData1")
-	public void TC5(String item, String mismatch) throws InterruptedException {
+	public void TC5(String item, String mismatch) {
 		loadHomePage();
 		hp.searchBox().clear();
 		hp.searchBox().sendKeys(item, Keys.ENTER);
@@ -119,9 +121,11 @@ public class MainPageTest extends Base {
 	/**
 	 * Favourites - Validate that the item marked as favorite will appear in
 	 * Favourites tab
+	 * 
+	 * @throws IOException
 	 */
 	@Test()
-	public void TC7() throws InterruptedException, IOException {
+	public void TC7() throws IOException {
 		loadHomePage();
 		data = edd.getData("General", "TC7");
 		String itemName = data.get(1);

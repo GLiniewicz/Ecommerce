@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="14" passed="14" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-08-05T13:46:19 CEST" name="Suite" finished-at="2020-08-05T13:50:10 CEST" duration-ms="231325">
+    <groups>
+    </groups>
+    <test started-at="2020-08-05T13:46:19 CEST" name="Test" finished-at="2020-08-05T13:50:10 CEST" duration-ms="231325">
+      <class name="Tests.MainPageTest">
+        <test-method is-config="true" signature="config()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:46:19 CEST" name="config" finished-at="2020-08-05T13:46:28 CEST" duration-ms="9536" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- config -->
+        <test-method signature="TC1()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:46:28 CEST" name="TC1" finished-at="2020-08-05T13:46:33 CEST" duration-ms="4598" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC1 -->
+        <test-method signature="TC2()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:46:33 CEST" name="TC2" finished-at="2020-08-05T13:46:44 CEST" duration-ms="10973" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2 -->
+        <test-method signature="TC3(java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:46:44 CEST" name="TC3" data-provider="testData" finished-at="2020-08-05T13:46:55 CEST" duration-ms="11248" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[buty]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3 -->
+        <test-method signature="TC3(java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:46:55 CEST" name="TC3" data-provider="testData" finished-at="2020-08-05T13:47:04 CEST" duration-ms="9178" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[top]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3 -->
+        <test-method signature="TC3(java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:47:04 CEST" name="TC3" data-provider="testData" finished-at="2020-08-05T13:47:16 CEST" duration-ms="11185" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[kapelusz]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3 -->
+        <test-method signature="TC4(java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:47:16 CEST" name="TC4" data-provider="testData" finished-at="2020-08-05T13:47:33 CEST" duration-ms="16913" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[buty]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC4 -->
+        <test-method signature="TC4(java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:47:33 CEST" name="TC4" data-provider="testData" finished-at="2020-08-05T13:47:51 CEST" duration-ms="18727" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[top]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC4 -->
+        <test-method signature="TC4(java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:47:51 CEST" name="TC4" data-provider="testData" finished-at="2020-08-05T13:48:17 CEST" duration-ms="25978" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[kapelusz]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC4 -->
+        <test-method signature="TC5(java.lang.String, java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:48:17 CEST" name="TC5" data-provider="testData1" finished-at="2020-08-05T13:48:35 CEST" duration-ms="17236" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[@@@@]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BRAK PASUJĄCYCH PRODUKTÓW]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC5 -->
+        <test-method signature="TC5(java.lang.String, java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:48:35 CEST" name="TC5" data-provider="testData1" finished-at="2020-08-05T13:48:46 CEST" duration-ms="11696" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[^^^^]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BRAK PASUJĄCYCH PRODUKTÓW]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC5 -->
+        <test-method signature="TC5(java.lang.String, java.lang.String)[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:48:46 CEST" name="TC5" data-provider="testData1" finished-at="2020-08-05T13:49:03 CEST" duration-ms="16579" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[%%%%]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BRAK PASUJĄCYCH PRODUKTÓW]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC5 -->
+        <test-method signature="TC6()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:49:03 CEST" name="TC6" finished-at="2020-08-05T13:49:45 CEST" duration-ms="42471" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC6 -->
+        <test-method signature="TC7()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:49:45 CEST" name="TC7" finished-at="2020-08-05T13:49:59 CEST" duration-ms="13318" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC7 -->
+        <test-method signature="TC8()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:49:59 CEST" name="TC8" finished-at="2020-08-05T13:50:09 CEST" duration-ms="10332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC8 -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:Tests.MainPageTest@1ce24091]" started-at="2020-08-05T13:50:09 CEST" name="teardown" finished-at="2020-08-05T13:50:10 CEST" duration-ms="1264" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- Tests.MainPageTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

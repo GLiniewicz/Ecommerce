@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,6 +18,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Base {
 
@@ -31,6 +32,7 @@ public class Base {
 		FileInputStream fis = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\Resources\\data.properties");
 		prop.load(fis);
+
 		String browserName = System.getProperty("browser");
 
 		if (browserName.contains("chrome")) {
@@ -59,8 +61,7 @@ public class Base {
 		return destinationFile;
 	}
 
-	public void clickOnLogo() throws InterruptedException {
-		Thread.sleep(2000);
+	public void clickOnLogo() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("document.querySelector('a.menu__hm',':before').click();");
 	}
@@ -105,4 +106,15 @@ public class Base {
 		return i;
 	}
 
+	public boolean waitForJStoLoad(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 35);
+		ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
+						.equals("complete");
+			}
+		};
+		return wait.until(jsLoad);
+	}
 }
