@@ -39,20 +39,20 @@ public class MainPageTest extends Base {
 		loadHomePage();
 	}
 
-	/// <summary>
-	/// Summary: Verification of the Magazine link - Validation that the link
-	/// redirects the user to the expected page
-	/// </summary>
+	/**
+	 * Verification of the Magazine link - Validation that the link redirects the
+	 * user to the expected page
+	 */
 	@Test()
 	public void TC1() throws IOException {
 		hp.readMagazineButton().click();
 		Assert.assertTrue(hp.magazineHeader().getText().contains("MAGAZINE"));
 	}
 
-	/// <summary>
-	/// Logo veryfication - Checking if the link attached to the logo button
-	/// redirects the user to the home page
-	/// </summary>
+	/**
+	 * Logo veryfication - Checking if the link attached to the logo button
+	 * redirects the user to the home page
+	 */
 	@Test()
 	public void TC2() throws IOException, InterruptedException {
 		loadHomePage();
@@ -62,10 +62,10 @@ public class MainPageTest extends Base {
 		Assert.assertTrue(homePageTitle.equals(driver.getTitle()));
 	}
 
-	/// <summary>
-	/// Search results - Validate that the search results will appear properly after
-	/// provide item name in "Szukaj produktów" box and press ENTER on the keyboard
-	/// </summary>
+	/**
+	 * Search results - Validate that the search results will appear properly after
+	 * provide item name in "Szukaj produktów" box and press ENTER on the keyboard
+	 */
 	@Test(dataProvider = "testData")
 	public void TC3(String item) {
 		hp.searchBox().clear();
@@ -74,11 +74,10 @@ public class MainPageTest extends Base {
 		Assert.assertTrue(driver.getTitle().contains(item));
 	}
 
-	/// <summary>
-	/// Search results - Validation that the search results will appear properly
-	/// after provide item name in "Szukaj produktów" box and click on magnifier
-	/// icon
-	/// </summary>
+	/**
+	 * Search results - Validation that the search results will appear properly
+	 * after provide item name in "Szukaj produktów" box and click on magnifier icon
+	 */
 	@Test(dataProvider = "testData")
 	public void TC4(String item) throws InterruptedException {
 		loadHomePage();
@@ -89,23 +88,21 @@ public class MainPageTest extends Base {
 		Assert.assertTrue(driver.getTitle().contains(item));
 	}
 
-	/// <summary>
-	/// Search results - Validation that the search results will appear
-	/// after provide incorrect input data
-	/// </summary>
+	/**
+	 * Search results - Validation that the search results will appear after provide
+	 * incorrect input data
+	 */
 	@Test(dataProvider = "testData1")
 	public void TC5(String item, String mismatch) throws InterruptedException {
-		// Summary: Search results - Validation that the search results will appear
-		// after provide incorrect input data
 		loadHomePage();
 		hp.searchBox().clear();
 		hp.searchBox().sendKeys(item, Keys.ENTER);
 		Assert.assertEquals(srp.searchResult().getText(), mismatch);
 	}
 
-	/// <summary>
-	/// Footer - Validation that the all links in a footer are working properly
-	/// </summary>
+	/**
+	 * Footer - Validation that the all links in a footer are working properly
+	 */
 	@Test()
 	public void TC6() {
 		loadHomePage();
@@ -119,10 +116,10 @@ public class MainPageTest extends Base {
 		Assert.assertEquals(childPageCount, 17);
 	}
 
-	/// <summary>
-	/// Favourites - Validate that the item marked as favorite will appear in
-	/// Favourites tab
-	/// </summary>
+	/**
+	 * Favourites - Validate that the item marked as favorite will appear in
+	 * Favourites tab
+	 */
 	@Test()
 	public void TC7() throws InterruptedException, IOException {
 		loadHomePage();
@@ -138,10 +135,10 @@ public class MainPageTest extends Base {
 		Assert.assertTrue(fs.countOfItems().getText().contains(countOfDesiredItems));
 	}
 
-	/// <summary>
-	/// Main menu-Validate that the proper pages are opened when clicking on
-	/// specific values
-	/// </summary>
+	/**
+	 * Main menu-Validate that the proper pages are opened when clicking on specific
+	 * values
+	 */
 	@Test()
 	public void TC8() {
 		loadHomePage();
